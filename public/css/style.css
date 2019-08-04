@@ -1,0 +1,60 @@
+body {
+  background: url("http://www.diningchicago.com/blog/wp-content/uploads/2010/08/BIG_TIMMY_BURGER-lg.jpg");
+  background-size: cover;
+  color: #fff;
+  background-color: rgba(238, 238, 238, 0.3) !important;
+  background-blend-mode: color;
+  font-family: "Roboto", sans-serif;
+  font-size: 120%
+}
+
+#header {
+  margin-bottom: 50px;
+  text-align: center;
+
+}
+
+h1 {
+  font-weight: 700;
+}
+
+#uneaten {
+  float: right;
+}
+
+#uneaten h2,
+#addForm h2 {
+  text-align: center;
+  font-weight: 700;
+}
+
+#eaten h2 {
+  margin-left: 75px;
+  font-weight: 700;
+}
+
+#addForm {
+  text-align: center;
+  margin-top: 150px;
+}
+
+#addForm label,
+#addForm input {
+  font-size: 115%
+}
+
+.burgerblock {
+  margin: 5px;
+}
+
+ul li {
+  font-size: 110%
+}
+
+input[type=text] {
+  border: 2px solid #ccc;
+}
+
+input[type=text]:focus {
+  border-color: #333;
+}

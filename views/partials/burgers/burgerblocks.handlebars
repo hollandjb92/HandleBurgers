@@ -1,8 +1,8 @@
-<li>
+<li class="burgerblock">
   {{burgerName}}
-  <button class="changeStatus" data-id="{{id}}" data-neweats="{{devoured}}">
-    {{#if devoured}}IT WAS DELICIOUS{{else}}NEVER TRIED THAT{{/if}}
+  <button class="changeStatus btn btn-primary" data-id="{{id}}" data-neweats="{{devoured}}">
+    {{#if devoured}}IT WAS DELICIOUS!{{else}}NEVER TRIED THAT{{/if}}
   </button>
 
-  <button class="deleteButton" data-burgerID="{{id}}">DELETE</button>
+  <button class="deleteButton btn btn-danger" data-burgerID="{{id}}">DELETE</button>
 </li>

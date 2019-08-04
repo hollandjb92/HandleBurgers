@@ -69,7 +69,7 @@ module.exports = ORM = {
     queryString += " WHERE ";
     queryString += condition;
 
-    console.log(queryString);
+
     connection.query(queryString, function (err, result) {
       if (err) return res.status(500).end();
 
