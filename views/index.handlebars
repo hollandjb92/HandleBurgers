@@ -1,8 +1,16 @@
-<form action="" id="burgerForm">
+<h2>Add a Burger!</h2>
+<form id="addForm">
 
+  <div class="form-group">
+    <label for="burger">Buger Name:</label>
+    <input type="text" id="burger" name="burgerName">
+  </div>
 
+  <div class="form-group">
+    <label for="eaten">Sleepy?</label><br>
+    <input type="radio" name="eaten" value="1" checked>Eaten!<br>
+    <input type="radio" name="uneaten" value="0"> Waiting to be Devoured
+  </div>
 
-
-
-  <button type="submit"></button>
+  <button type="submit">Add Burger</button>
 </form>

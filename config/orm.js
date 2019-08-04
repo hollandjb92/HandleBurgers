@@ -1,8 +1,8 @@
-import connection from "./connection";
+const connection = require("./connection");
 
 
 
-export const ORM = {
+module.exports = ORM = {
   selectAll: console.log(),
 
 

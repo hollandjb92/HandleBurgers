@@ -3,7 +3,7 @@ const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'password',
-  database: 'burger_DB'
+  database: 'burgers_DB'
 });
 
 connection.connect(err => {
@@ -13,6 +13,4 @@ connection.connect(err => {
 });
 
 
-export {
-  connection
-};
+module.exports = connection;

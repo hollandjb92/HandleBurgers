@@ -1,20 +1,16 @@
 const express = require("express"),
   router = express.Router();
 
-import burger from "../models/burger";
+const burger = require("../models/burger");
 
 
 
 
 
+router.get("/", (req, res) => {
+  res.render("index");
+})
 
 
 
-
-
-
-
-
-export {
-  router
-};
+module.exports = router;

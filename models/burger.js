@@ -1,7 +1,7 @@
-import ORM from "../config/orm";
+const ORM = require("../config/orm");
 
 
 
 
 
-export const burger = {}
+module.exports = burger = {}
