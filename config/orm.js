@@ -38,7 +38,7 @@ module.exports = ORM = {
     const queryString = "SELECT * FROM " + table + ";";
 
     connection.query(queryString, (err, res) => {
-      if (err) return res.status(500).end();
+      if (err) throw err;
 
       cb(res);
     })
@@ -54,7 +54,7 @@ module.exports = ORM = {
 
 
     connection.query(queryString, value, (err, res) => {
-      if (err) return res.status(500).end();
+      if (err) throw err
 
       cb(res);
     })
@@ -71,7 +71,7 @@ module.exports = ORM = {
 
 
     connection.query(queryString, function (err, result) {
-      if (err) return res.status(500).end();
+      if (err) throw err
 
 
       cb(result);
@@ -85,7 +85,7 @@ module.exports = ORM = {
     queryString += deleteCondition;
 
     connection.query(queryString, (err, res) => {
-      if (err) res.status(500).end();
+      if (err) throw err
 
       cb(res);
     })
