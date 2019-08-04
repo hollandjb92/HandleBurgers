@@ -9,17 +9,21 @@ const app = express();
 
 
 app.use(express.static("public"))
-
-
+app.use(express.urlencoded({
+  extended: true
+}))
 app.set("view engine", "handlebars");
 
 
 app.engine(
   "handlebars",
   exphbs({
-    defaultLayout: "main"
+    defaultLayout: "main",
+    registerPartials: __dirname + "./views/layouts"
   })
 );
+
+
 
 app.use("/", burgerRoutes);
 

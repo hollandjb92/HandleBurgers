@@ -1,15 +1,42 @@
+<h1>Welcome to HandleBurgers</h1>
+<h2>No hassle, convenient burger logging!</h2>
+
+
+
+<h2>To Be Eaten:</h2>
+
+<ul>
+  {{#each burgers}}
+  {{#unless devoured}}
+  {{> burgers/burgerblocks devoured=true}}
+  {{/unless}}
+  {{/each}}
+</ul>
+
+<h2>Eaten and Enjoyed:</h2>
+
+<ul>
+  {{#each burgers}}
+  {{#if devoured}}
+  {{> burgers/burgerblocks devoured=false}}
+  {{/if}}
+  {{/each}}
+</ul>
+
+
+
 <h2>Add a Burger!</h2>
 <form id="addForm">
 
   <div class="form-group">
-    <label for="burger">Buger Name:</label>
+    <label for="burger">Burger Name:</label>
     <input type="text" id="burger" name="burgerName">
   </div>
 
   <div class="form-group">
-    <label for="eaten">Sleepy?</label><br>
-    <input type="radio" name="eaten" value="1" checked>Eaten!<br>
-    <input type="radio" name="uneaten" value="0"> Waiting to be Devoured
+    <label for="eaten">Have you tried this burger?</label><br>
+    <input type="radio" name="eaten" value="1">Eaten!<br>
+    <input type="radio" name="eaten" value="0"> Waiting to be Devoured
   </div>
 
   <button type="submit">Add Burger</button>

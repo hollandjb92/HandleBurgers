@@ -1,12 +1,95 @@
 const connection = require("./connection");
 
+function printQuestionMarks(num) {
+  const arr = [];
+
+  for (i = 0; i < num; i++) {
+    arr.push("?");
+  }
+
+  return arr.toString();
+}
+
+
+function objToSql(ob) {
+  var arr = [];
+
+  for (var key in ob) {
+    var value = ob[key];
+
+    if (Object.hasOwnProperty.call(ob, key)) {
+
+      if (typeof value === "string" && value.indexOf(" ") >= 0) {
+        value = "'" + value + "'";
+      }
+
+      arr.push(key + "=" + value);
+    }
+  }
+  return arr.toString();
+}
+
+
+
 
 
 module.exports = ORM = {
-  selectAll: console.log(),
+  selectAll: function (table, cb) {
+    const queryString = "SELECT * FROM " + table + ";";
+
+    connection.query(queryString, (err, res) => {
+      if (err) return res.status(500).end();
+
+      cb(res);
+    })
+  },
 
 
-  insertOne: console.log(),
+  insertOne: function (table, column, value, cb) {
+    let queryString = "INSERT INTO " + table + " (";
 
-  updateOne: console.log()
+    queryString += column.toString() + ") VALUES (";
+    queryString += printQuestionMarks(value.length) + ")";
+
+
+
+    connection.query(queryString, value, (err, res) => {
+      if (err) return res.status(500).end();
+
+      cb(res);
+    })
+
+  },
+
+  updateOne: function (table, newValue, condition, cb) {
+    let queryString = "UPDATE " + table;
+
+    queryString += " SET ";
+    queryString += objToSql(newValue);
+    queryString += " WHERE ";
+    queryString += condition;
+
+    console.log(queryString);
+    connection.query(queryString, function (err, result) {
+      if (err) return res.status(500).end();
+
+
+      cb(result);
+    });
+  },
+
+  deleteOne: function (table, deleteCondition, cb) {
+
+    let queryString = "DELETE FROM " + table;
+    queryString += " WHERE ";
+    queryString += deleteCondition;
+
+    connection.query(queryString, (err, res) => {
+      if (err) res.status(500).end();
+
+      cb(res);
+    })
+  }
+
+
 };

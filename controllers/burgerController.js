@@ -8,9 +8,43 @@ const burger = require("../models/burger");
 
 
 router.get("/", (req, res) => {
-  res.render("index");
+  burger.selectAll(burgers => {
+    res.render("index", {
+      burgers
+    })
+  })
 })
 
+router.post("/api/burgers", (req, res) => {
+
+  burger.insertOne(["burgerName", "devoured"], [req.body.burgerName, req.body.eaten], (response) => {
+
+  })
+})
+
+router.put("/api/burgers/:id", (req, res) => {
+  const condition = "id = " + req.params.id;
+
+  burger.updateOne({
+    devoured: req.body.devoured
+  }, condition, response => {
+    if (response.changedRows == 0) return res.status(404).end();
+
+    res.status(200).end();
+  })
+})
+
+router.delete("/api/burgers/:id", (req, res) => {
+
+  const condition = "id = " + req.params.id;
+
+  burger.deleteOne(condition, response => {
+    if (response.changedRows == 0) return res.status(404).end();
+
+    res.status(200).end();
+  })
+
+})
 
 
 module.exports = router;
