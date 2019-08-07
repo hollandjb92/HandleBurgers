@@ -3,7 +3,7 @@
 <p>Do you ever eat so many burgers that you find it hard to keep track? Then this burger logging app is for you! </p>
 
 ## Live Link
-Check out the deployed application <a href="https://sleepy-retreat-79734.herokuapp.com/">HERE</a>
+Check out the deployed application <a href="https://aqueous-lowlands-71112.herokuapp.com/">HERE</a>
 
 ## Getting Started
 
