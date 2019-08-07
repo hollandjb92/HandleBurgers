@@ -5,6 +5,8 @@ const burger = require("../models/burger");
 
 
 
+
+
 router.get("/", (req, res) => {
   burger.selectAll(burgers => {
     res.render("index", {
@@ -12,6 +14,7 @@ router.get("/", (req, res) => {
     })
   })
 })
+
 
 
 router.post("/api/burgers", (req, res) => {
