@@ -54,6 +54,6 @@ $(".deleteButton").on("click", function (event) {
     type: "DELETE",
   }).then(_ => {
     console.log("Deleted the burger with the id of " + id);
-    location.reload();
+    location.reload(true);
   })
 });
